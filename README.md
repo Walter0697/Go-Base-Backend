@@ -26,6 +26,16 @@ using cheeseburger as main branch to avoid using main
 - Simply set up the variable you want in `docker-compose.yml`, then run
 - `docker-compose up -d`
 
+### Notes
+- In `main.go`, we create a new user here to make sure that we can login, you can remove it after creating your first user
+- `/allusers` this get request is only for checking if the user is being added or not, you can remove it as you wish
+- all object will return all their fields that matches their database value, please wrap it to avoid any potential leaks
+
+### Issue
+- request body only accept raw json
+- unmatching field will return error with object name instead of json field name
+
+
 License
 ----
 MIT
