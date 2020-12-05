@@ -107,5 +107,5 @@ func DeleteBook(c *gin.Context) {
 
 
 func Testing(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{"data": "CI/CD works!"})
+	c.JSON(http.StatusOK, gin.H{"data": "CI/CD (actually it is GitHub Actions!) confirms working!"})
 }

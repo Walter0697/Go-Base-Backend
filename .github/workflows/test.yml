@@ -15,7 +15,10 @@ jobs:
       -
         # if you want to use different branch, change this one into different name
         name: checkout different branch
-        run: git checkout -b local-test origin/action-test
+        
+        run: |
+          git fetch --prune --unshallow --tags
+          git checkout -b local-test origin/action-test
       - 
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
