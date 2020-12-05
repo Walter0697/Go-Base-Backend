@@ -20,6 +20,8 @@ jobs:
       - 
         name: Testing SSH
         uses: appleboy/ssh-action@master
+        env:
+          WORKING_PATH: ${{ secrets.WORKING_PATH }}
         with:
           key: ${{ secrets.SSH_KEY }}
           host: ${{ secrets.SERVER_IP }}
@@ -27,7 +29,7 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           script: |
             echo $MAIL
-            echo "testing environemnt variable $TEST_PATH"
+            echo "testing environemnt variable $WORKING_PATH"
 
 
         
