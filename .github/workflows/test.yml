@@ -16,7 +16,8 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: waltercheng/gin_backend
-          tag_with_ref: true
+          push: true
+          tags: waltercheng/gin_backend:latest
       - 
         name: Testing SSH
         uses: appleboy/ssh-action@master
