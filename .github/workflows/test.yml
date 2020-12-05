@@ -26,7 +26,7 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           port: ${{ secrets.SERVER_PORT }}
           script: |
-            export POSTGRES_HOST=${{ secrets.WORKING_PATH }}
+            export WORKING_PATH=${{ secrets.WORKING_PATH }}
             echo $MAIL
             echo "testing environemnt variable $WORKING_PATH"
 
