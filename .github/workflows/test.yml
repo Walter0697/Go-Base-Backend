@@ -22,8 +22,7 @@ jobs:
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_KEY }}
-          known_hosts: ${{ secrets.SERVER_PS}}
-          password: ${{ secrets.SERVER_PASSWORD }}
+          known_hosts : ${{ secrets.SERVER_IP }}
       - 
         name: testing SSH
         run: ls -a
