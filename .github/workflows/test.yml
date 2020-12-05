@@ -9,6 +9,7 @@ jobs:
       -
         name: checkout
         uses: actions/checkout@v2
+        run: git checkout -b B1 origin/action-test
       - 
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
