@@ -17,8 +17,8 @@ jobs:
         name: checkout different branch
         
         run: |
-          git fetch --prune --unshallow --tags
-          git checkout -b local-test origin/action-test
+          git fetch --unshallow --tags
+          git checkout origin/action-test
       - 
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
