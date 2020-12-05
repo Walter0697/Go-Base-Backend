@@ -1,5 +1,7 @@
 name: A testing workflow action yml
-on: push
+on: 
+  tags:
+    - 'test*.*'
 
 jobs:
   build:
@@ -10,6 +12,7 @@ jobs:
         name: checkout
         uses: actions/checkout@v2
       -
+        # if you want to use different branch, change this one into different name
         name: checkout different branch
         run: git checkout -b local-test origin/action-test
       - 
@@ -40,13 +43,14 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USERNAME }}
           port: ${{ secrets.SERVER_PORT }}
+          # since we don't expect the database to update that often, we only remove our own backend image
           script: |
             export WORKING_PATH=${{ secrets.WORKING_PATH }}
             cd $WORKING_PATH
             ls 
             docker-compose stop
-            docker-compose rm -rf
-            docker-compose pull
+            docker-compose rm -rf ginbackend
+            docker-compose pull ginbackend
             docker-compose up -d
 
 
