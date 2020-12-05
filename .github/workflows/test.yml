@@ -44,7 +44,6 @@ jobs:
             export WORKING_PATH=${{ secrets.WORKING_PATH }}
             cd $WORKING_PATH
             ls 
-            docker-compose down
             docker-compose up -d --build ginbackend
 
 
