@@ -26,6 +26,11 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           port: ${{ secrets.SERVER_PORT }}
           script: |
-            ls -l
+            echo $MAIL
+            echo $TEST_PATH
+            ls
+            cd ..
+            ls
+            
 
         
