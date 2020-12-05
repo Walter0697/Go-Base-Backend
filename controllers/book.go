@@ -104,3 +104,8 @@ func DeleteBook(c *gin.Context) {
   
 	c.JSON(http.StatusOK, gin.H{"data": true})
   }
+
+
+func Testing(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{"data": "CI/CD works!"})
+}
