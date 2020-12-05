@@ -18,13 +18,14 @@ jobs:
           repository: waltercheng/gin_backend
           tag_with_ref: true
       - 
-        name: Install SSH Key
-        uses: shimataro/ssh-key-action@v2
+        name: Testing SSH
+        uses: appleboy/ssh-action@master
         with:
           key: ${{ secrets.SSH_KEY }}
-          known_hosts : ${{ secrets.SERVER_IP }}
-      - 
-        name: testing SSH
-        run: ls -a
+          host: ${{ secrets.SERVER_IP }}
+          user: ${{ secrets.SERVER_USERNAME }}
+          port: ${{ secrets.SERVER_PORT }}
+          script: |
+            ls -l
 
         
