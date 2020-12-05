@@ -2,6 +2,7 @@ FROM golang:1.15
 
 ENV GIN_MODE=release
 ENV PORT=5000
+RUN echo "testing"
 
 WORKDIR /go/src/go-docker-dev.to
 

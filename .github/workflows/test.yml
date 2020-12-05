@@ -44,7 +44,10 @@ jobs:
             export WORKING_PATH=${{ secrets.WORKING_PATH }}
             cd $WORKING_PATH
             ls 
-            docker-compose up -d --build ginbackend
+            docker-compose stop
+            docker-compose rm -rf
+            docker-compose pull
+            docker-compose up -d
 
 
         
