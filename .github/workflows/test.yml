@@ -20,14 +20,13 @@ jobs:
       - 
         name: Testing SSH
         uses: appleboy/ssh-action@master
-        env:
-          WORKING_PATH: ${{ secrets.WORKING_PATH }}
         with:
           key: ${{ secrets.SSH_KEY }}
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USERNAME }}
           port: ${{ secrets.SERVER_PORT }}
           script: |
+            export POSTGRES_HOST=${{ secrets.WORKING_PATH }}
             echo $MAIL
             echo "testing environemnt variable $WORKING_PATH"
 
