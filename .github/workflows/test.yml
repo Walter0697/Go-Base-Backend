@@ -23,7 +23,7 @@ jobs:
         with:
           key: ${{ secrets.SSH_KEY }}
           host: ${{ secrets.SERVER_IP }}
-          user: ${{ secrets.SERVER_USERNAME }}
+          username: ${{ secrets.SERVER_USERNAME }}
           port: ${{ secrets.SERVER_PORT }}
           script: |
             ls -l
