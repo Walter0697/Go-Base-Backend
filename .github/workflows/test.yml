@@ -27,10 +27,7 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           script: |
             echo $MAIL
-            echo $TEST_PATH
-            ls
-            cd ..
-            ls
-            
+            echo "testing environemnt variable $TEST_PATH"
+
 
         
