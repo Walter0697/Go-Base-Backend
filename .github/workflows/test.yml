@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
       -
         name: checkout different branch
-        run: git checkout -b B1 origin/action-test
+        run: git checkout -b action-test origin/action-test
       - 
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -44,8 +44,7 @@ jobs:
             export WORKING_PATH=${{ secrets.WORKING_PATH }}
             cd $WORKING_PATH
             ls 
-            docker-compose down
-            docker-compose up -d
+            docker-compose down && docker-compose build --pull && docker-compose up -d
 
 
         
