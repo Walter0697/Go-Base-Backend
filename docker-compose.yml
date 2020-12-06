@@ -23,9 +23,10 @@ services:
 
     ginbackend:
       container_name: ginbackend
-      build:
-        context: .
-        dockerfile: Dockerfile
+      # build:
+      #   context: .
+      #   dockerfile: Dockerfile
+      image: waltercheng/gin_backend:latest
       networks:
         - backend
       restart: always

@@ -1,0 +1,60 @@
+name: A testing workflow action yml
+on: 
+  push:
+    tags:
+      - 'action*.*'
+
+jobs:
+  build:
+    name: Dockerize and Deploy
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: checkout
+        uses: actions/checkout@v2
+      -
+        # if you want to use different branch, change this one into different name
+        name: checkout different branch
+        
+        run: |
+          git fetch --all
+          git checkout -b local-action origin/github-actions
+      - 
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      -
+        name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - 
+        name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: waltercheng/gin_backend:latest
+      - 
+        name: Remote Deployment
+        uses: appleboy/ssh-action@master
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          port: ${{ secrets.SERVER_PORT }}
+          # since we don't expect the database to update that often, we only remove our own backend image
+          script: |
+            export WORKING_PATH=${{ secrets.WORKING_PATH }}
+            cd $WORKING_PATH
+            docker-compose stop
+            docker-compose rm -rf ginbackend
+            docker-compose pull ginbackend
+            docker-compose up -d
+
+
+        
