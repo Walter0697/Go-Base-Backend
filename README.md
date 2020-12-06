@@ -23,8 +23,9 @@ using cheeseburger as main branch to avoid using main
 - `go run main.go`
 
 #### production
-- Simply set up the variable you want in `docker-compose.yml`, then run
-- `docker-compose up -d`
+- Set up the variable you want in `docker-compose.yml`, and place it in your server
+- change `WORKING_PATH` in GitHub secret to be the workign directory where you place `docker-compose.yml`
+- Push tag that matches `'production*.*'`
 
 ### Notes
 - In `main.go`, we create a new user here to make sure that we can login, you can remove it after creating your first user
