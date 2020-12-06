@@ -44,6 +44,7 @@ func main() {
 
 	r.GET("/books", controllers.FindBooks)
 	r.GET("/allusers", controllers.FindAllUsers)
+	r.GET("/testing", controllers.TestingFunction)
 	
 	r.POST("/login", controllers.Login)
 

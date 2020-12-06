@@ -104,3 +104,8 @@ func DeleteBook(c *gin.Context) {
   
 	c.JSON(http.StatusOK, gin.H{"data": true})
   }
+
+// if this message shows up, it means GitHub Action works
+func TestingFunction(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{"data": "if this message shows up, it means GitHub Action works!"})
+}

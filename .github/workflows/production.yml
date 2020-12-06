@@ -20,7 +20,7 @@ jobs:
         
         run: |
           git fetch --all
-          git checkout -b local origin/cheeseburger
+          git checkout -b local origin/chesseburger
       - 
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
